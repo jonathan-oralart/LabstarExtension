@@ -1,0 +1,9 @@
+Privacy Policy for LabstarExtension
+
+Effective Date: 11/08/2023
+
+We do not collect any user information, personal data, or identifiable information through our [Your Extension Name] Chrome extension. We do not use cookies, tracking technologies, or any similar methods. Our extension does not automatically collect any data, and we do not link to external websites or services.
+
+Our extension is not intended for users under the age of 13, and we do not knowingly collect information from children under 13 years of age.
+
+We may update this Privacy Policy occasionally, and any changes will be posted on this page. If you have questions about this policy, please contact us at jonathan@oralart.co.nz
