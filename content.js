@@ -10,7 +10,12 @@ function replaceWithLink1() {
         console.log("match undefined")
         return
     }
-    match.innerHTML = `<a href="https://scan-park.netlify.app/?search=${match.innerText}" target="_blank">${match.innerText}</a>`
+    const e = document.createElement("a")
+    e.target = "_blank"
+    e.href = `https://scan-park.netlify.app/?search=${match.innerText}`
+    e.innerText = match.innerText
+    match.childNodes.forEach(x => x.remove())
+    match.appendChild(e)
 }
 
 function replaceWithLink2() {
@@ -29,6 +34,6 @@ function replaceWithLink2() {
 
 console.log("here")
 
-setInterval(replaceWithLink1, 250)
+setInterval(replaceWithLink1, 1000)
 setInterval(replaceWithLink2, 250)
 
