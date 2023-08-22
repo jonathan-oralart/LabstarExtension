@@ -5,7 +5,8 @@ function replaceWithLink1() {
         return
     }
 
-    const match = [...matches].filter(x=>x.innerText.startsWith("2300"))?.[0]
+
+    const match = [...matches].filter(x=>x.innerText.length === 8)?.[0]
     if (match === undefined) {
         console.log("match undefined")
         return
@@ -26,7 +27,7 @@ function replaceWithLink2() {
     const e = document.createElement("a")
     e.target = "_blank"
     e.href = `https://scan-park.netlify.app/?search=${text}`
-    e.innerText = "SP - "
+    e.innerText = "📍 "
     x.prepend(e)
 })
 }
