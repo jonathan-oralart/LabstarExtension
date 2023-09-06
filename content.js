@@ -1,22 +1,25 @@
 function replaceWithLink1() {
     const matches = document.querySelectorAll(".App-header-row .col-1 span strong")
     if (matches.length === 0) {
-        console.log("can't find matches")
         return
     }
 
-
-    const match = [...matches].filter(x=>x.innerText.length === 8)?.[0]
+    const match = [...matches].filter(x=>{
+        // length 8 and is all numbers using a regex
+        return x.innerText.length === 8 && /^\d+$/.test(x.innerText)
+    } )?.[0]
     if (match === undefined) {
-        console.log("match undefined")
+        return
+    }
+    
+    if (match.children.length == 2) {
         return
     }
     const e = document.createElement("a")
     e.target = "_blank"
     e.href = `https://scan-park.netlify.app/?search=${match.innerText}`
-    e.innerText = match.innerText
-    match.childNodes.forEach(x => x.remove())
-    match.appendChild(e)
+    e.innerText = "📍 "
+    match.prepend(e)
 }
 
 function replaceWithLink2() {
@@ -32,8 +35,6 @@ function replaceWithLink2() {
 })
 }
 
-
-console.log("here")
 
 setInterval(replaceWithLink1, 1000)
 setInterval(replaceWithLink2, 250)
