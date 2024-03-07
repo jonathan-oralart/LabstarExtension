@@ -4,14 +4,14 @@ function replaceWithLink1() {
         return
     }
 
-    const match = [...matches].filter(x=>{
+    const match = [...matches].filter(x => {
         // length 8 and is all numbers using a regex
         return x.innerText.length === 8 && /^\d+$/.test(x.innerText)
-    } )?.[0]
+    })?.[0]
     if (match === undefined) {
         return
     }
-    
+
     if (match.children.length == 2) {
         return
     }
@@ -25,14 +25,14 @@ function replaceWithLink1() {
 function replaceWithLink2() {
     const listPatientNames = [...document.querySelectorAll("#tabpanel tbody tr td:nth-child(4) p")]
     listPatientNames.forEach(x => {
-    if (x.children.length !== 0) return
-    const text = x.parentElement.previousElementSibling.children[0].innerText
-    const e = document.createElement("a")
-    e.target = "_blank"
-    e.href = `https://scan-park.netlify.app/?search=${text}`
-    e.innerText = "📍 "
-    x.prepend(e)
-})
+        if (x.children.length !== 0) return
+        const text = x.parentElement.previousElementSibling.children[0].innerText
+        const e = document.createElement("a")
+        e.target = "_blank"
+        e.href = `https://scan-park.netlify.app/?search=${text}`
+        e.innerText = "📍 "
+        x.prepend(e)
+    })
 }
 
 
