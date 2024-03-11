@@ -13,7 +13,8 @@
                 "https://oralart.labstar.com/*"
             ],
             "js": [
-                "content.js"
+                "src/addScanToTable.js",
+                "src/addLastScanLinkToCasePopup.js"
             ],
             "all_frames": true
         }
