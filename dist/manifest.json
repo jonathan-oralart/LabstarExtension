@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "LabStar Links Extension",
+  "version": "1.2",
+  "description": "Add links to ScanPark inside LabStar",
+  "permissions": [],
+  "icons": {
+    "64": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/content-script-loader.addScanToTable.js.6f16fd34.7605b986.js",
+        "assets/content-script-loader.addLastScanLinkToCasePopup.js.b9fd0122.57646352.js"
+      ],
+      "matches": [
+        "https://oralart.labstar.com/*"
+      ],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "icon.png"
+      ],
+      "use_dynamic_url": false
+    },
+    {
+      "matches": [
+        "https://oralart.labstar.com/*"
+      ],
+      "resources": [
+        "assets/getLatestScanOnScanPark.ab62b2e4.js",
+        "assets/addScanToTable.js.6f16fd34.js",
+        "assets/addLastScanLinkToCasePopup.js.b9fd0122.js"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
+}
