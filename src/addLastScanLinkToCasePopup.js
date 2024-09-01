@@ -19,7 +19,7 @@ async function addLastScanLinkToCasePopup() {
     return;
   }
 
-  const scanLink = await getLatestScanOnScanPark("1886" + barcode);
+  const scanLink = await getLatestScanOnScanPark(barcode);
 
 
   if (scanLink) {

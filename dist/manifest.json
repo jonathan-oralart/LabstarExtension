@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LabStar Links Extension",
-  "version": "1.2",
+  "version": "1.3",
   "description": "Add links to ScanPark inside LabStar",
   "permissions": [],
   "icons": {
@@ -14,6 +14,7 @@
         "assets/content-script-loader.addLastScanLinkToCasePopup.js.b9fd0122.57646352.js"
       ],
       "matches": [
+        "https://lms.3shape.com/*",
         "https://oralart.labstar.com/*"
       ],
       "all_frames": true
@@ -31,6 +32,7 @@
     },
     {
       "matches": [
+        "https://lms.3shape.com/*",
         "https://oralart.labstar.com/*"
       ],
       "resources": [
