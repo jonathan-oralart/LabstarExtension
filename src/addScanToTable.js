@@ -33,7 +33,7 @@ async function addLatestScanColumn() {
   const barcodeCells = Array.from(tableRows).map(row => row.querySelector("td:nth-child(3) a").textContent);
 
   // Fetch the scan data for each barcode
-  const scanDataPromises = barcodeCells.map(barcode => getLatestScanOnScanPark("1886" + barcode, true));
+  const scanDataPromises = barcodeCells.map(barcode => getLatestScanOnScanPark(barcode, true));
 
   // Populate the cells with the results
   Promise.all(scanDataPromises).then(scanDataResults => {
