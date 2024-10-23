@@ -9,38 +9,39 @@
   },
   "content_scripts": [
     {
-      "js": [
-        "assets/content-script-loader.addScanToTable.js.e260857b.9f4649cc.js",
-        "assets/content-script-loader.addLastScanLinkToCasePopup.js.58f841b3.2a654b71.js"
-      ],
       "matches": [
         "https://lms.3shape.com/*",
         "https://oralart.labstar.com/*"
+      ],
+      "js": [
+        "src/addScanToTable.js-loader.js",
+        "src/addLastScanLinkToCasePopup.js-loader.js"
       ],
       "all_frames": true
     }
   ],
   "web_accessible_resources": [
     {
+      "resources": [
+        "icon.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    },
+    {
       "matches": [
         "<all_urls>"
       ],
       "resources": [
-        "icon.png"
+        "**/*",
+        "*"
       ],
       "use_dynamic_url": false
-    },
-    {
-      "matches": [
-        "https://lms.3shape.com/*",
-        "https://oralart.labstar.com/*"
-      ],
-      "resources": [
-        "assets/getLatestScanOnScanPark.35fb3d2e.js",
-        "assets/addScanToTable.js.e260857b.js",
-        "assets/addLastScanLinkToCasePopup.js.58f841b3.js"
-      ],
-      "use_dynamic_url": true
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  }
 }
