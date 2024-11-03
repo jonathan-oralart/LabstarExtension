@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "LabStar Links Extension",
-    "version": "1.4",
-    "description": "Add links to ScanPark inside LabStar",
+    "name": "LMS Links Extension",
+    "version": "1.6",
+    "description": "Add links to ScanPark inside LMS",
     "permissions": [],
     "icons": {
         "64": "icon.png"
@@ -10,8 +10,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://lms.3shape.com/*",
-                "https://oralart.labstar.com/*"
+                "https://lms.3shape.com/*"
             ],
             "js": [
                 "src/addScanToTable.js",

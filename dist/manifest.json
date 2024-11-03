@@ -1,47 +1,44 @@
 {
   "manifest_version": 3,
-  "name": "LabStar Links Extension",
-  "version": "1.4",
-  "description": "Add links to ScanPark inside LabStar",
+  "name": "LMS Links Extension",
+  "version": "1.6",
+  "description": "Add links to ScanPark inside LMS",
   "permissions": [],
   "icons": {
     "64": "icon.png"
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://lms.3shape.com/*",
-        "https://oralart.labstar.com/*"
-      ],
       "js": [
-        "src/addScanToTable.js-loader.js",
-        "src/addLastScanLinkToCasePopup.js-loader.js"
+        "assets/addScanToTable.js-loader.55ad9871.js",
+        "assets/addLastScanLinkToCasePopup.js-loader.dd3d5083.js"
+      ],
+      "matches": [
+        "https://lms.3shape.com/*"
       ],
       "all_frames": true
     }
   ],
   "web_accessible_resources": [
     {
+      "matches": [
+        "<all_urls>"
+      ],
       "resources": [
         "icon.png"
       ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "use_dynamic_url": false
     },
     {
       "matches": [
-        "<all_urls>"
+        "https://lms.3shape.com/*"
       ],
       "resources": [
-        "**/*",
-        "*"
+        "assets/getLatestScanOnScanPark.79728d42.js",
+        "assets/addScanToTable.js.68f19bb7.js",
+        "assets/addLastScanLinkToCasePopup.js.9dfc7d22.js"
       ],
       "use_dynamic_url": false
     }
-  ],
-  "background": {
-    "service_worker": "service-worker-loader.js",
-    "type": "module"
-  }
+  ]
 }

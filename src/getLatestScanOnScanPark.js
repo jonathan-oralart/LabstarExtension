@@ -19,7 +19,7 @@ export const app = initializeApp(firebaseConfig);
 export async function getLatestScanOnScanPark(barcode, multipleLines = false) {
   const db = getFirestore(app);
   const scansRef = collection(db, "scans");
-  const q = query(scansRef, where("barcode", "in", ["1886" + barcode, "1094" + barcode]), orderBy("scanTime", "desc"), limit(1));
+  const q = query(scansRef, where("barcode", "in", ["1886" + barcode, "1094" + barcode, barcode]), orderBy("scanTime", "desc"), limit(1));
 
   let querySnapshot = undefined
   try {
