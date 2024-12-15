@@ -1,46 +1,44 @@
-body,
-html {
+.json-viewer-table {
   font-family: monospace;
-  height: 100%;
   font-size: 12px;
 }
 
-.container {
+.json-viewer-table .container {
   width: 100%;
   overflow-x: auto;
 }
 
-table {
+.json-viewer-table table {
   border-collapse: collapse;
   white-space: nowrap;
   width: 100%;
 }
 
-table,
-td,
-th {
+.json-viewer-table table,
+.json-viewer-table td,
+.json-viewer-table th {
   border: 1px solid gray;
 }
 
-td,
-th {
+.json-viewer-table td,
+.json-viewer-table th {
   padding: 2px 5px;
   text-align: left;
 }
 
-th {
+.json-viewer-table th {
   font-weight: bold;
   background-color: #f2f2f2;
   vertical-align: top;
 }
 
-.blue-wrapper {
+.json-viewer-table .blue-wrapper {
   border-top: 1px solid #4a6da7;
   margin-bottom: 10px;
   width: fit-content;
 }
 
-.blue-header {
+.json-viewer-table .blue-header {
   background-color: #4a6da7;
   height: 1.5em;
   cursor: pointer;
@@ -52,81 +50,81 @@ th {
   transition: background-color 0.2s ease;
 }
 
-.blue-header:hover {
+.json-viewer-table .blue-header:hover {
   background-color: #5a7db7;
 }
 
-.blue-header:active {
+.json-viewer-table .blue-header:active {
   background-color: #3a5d97;
 }
 
-.blue-wrapper.collapsed>.content {
+.json-viewer-table .blue-wrapper.collapsed>.content {
   display: none;
 }
 
-.toggle-indicator {
+.json-viewer-table .toggle-indicator {
   display: inline-block;
   width: 1em;
   text-align: center;
   transition: transform 0.2s;
 }
 
-.blue-wrapper.collapsed>.blue-header .toggle-indicator {
+.json-viewer-table .blue-wrapper.collapsed>.blue-header .toggle-indicator {
   transform: rotate(-90deg);
 }
 
-.item-count {
+.json-viewer-table .item-count {
   margin-left: auto;
 }
 
-.blue-wrapper:not(.collapsed)>.blue-header .item-count {
+.json-viewer-table .blue-wrapper:not(.collapsed)>.blue-header .item-count {
   display: none;
 }
 
-.blue-wrapper>.content {
+.json-viewer-table .blue-wrapper>.content {
   display: block;
 }
 
-.number-cell {
+.json-viewer-table .number-cell {
   color: #0066cc;
   font-family: 'Consolas', 'Monaco', monospace;
 }
 
-.number-string-cell {
+.json-viewer-table .number-string-cell {
   color: #006600;
   font-family: 'Consolas', 'Monaco', monospace;
 }
 
-.string-cell {
+.json-viewer-table .string-cell {
   color: #333;
 }
 
-.date-cell {
+.json-viewer-table .date-cell {
   color: #008000;
   font-style: italic;
 }
 
-.null-cell {
+.json-viewer-table .null-cell {
   color: #999;
   font-style: italic;
 }
 
-.slider-container {
+.json-viewer-table .slider-container {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.slider-container input {
+.json-viewer-table .slider-container input {
   width: 200px;
 }
 
-.blue-header {
+.json-viewer-table .blue-header {
   justify-content: flex-start;
 }
 
-.copy-button {
+.json-viewer-table .copy-button {
   margin-left: auto;
   cursor: pointer;
   font-size: 16px;
@@ -135,71 +133,71 @@ th {
   transition: opacity 0.2s ease;
 }
 
-.blue-header:hover .copy-button {
+.json-viewer-table .blue-header:hover .copy-button {
   opacity: 1;
 }
 
-.copy-button:hover {
+.json-viewer-table .copy-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.copy-button:active {
+.json-viewer-table .copy-button:active {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.array-table {
+.json-viewer-table .array-table {
   width: auto;
   margin-left: auto;
 }
 
-td .array-table {
+.json-viewer-table td .array-table {
   margin-right: 0;
 }
 
-.boolean-cell {
+.json-viewer-table .boolean-cell {
   text-align: center;
 }
 
-.boolean-cell svg {
+.json-viewer-table .boolean-cell svg {
   vertical-align: middle;
 }
 
-.undefined-cell {
+.json-viewer-table .undefined-cell {
   color: #999;
   font-style: italic;
 }
 
-.nan-cell {
+.json-viewer-table .nan-cell {
   color: #ff4500;
   font-style: italic;
 }
 
-.empty-array {
+.json-viewer-table .empty-array {
   color: #999;
   font-style: italic;
   padding: 2px 5px;
 }
 
-.empty-string {
+.json-viewer-table .empty-string {
   color: #999;
   padding: 2px 4px;
   border-radius: 3px;
 }
 
-.string-cell a {
+.json-viewer-table .string-cell a {
   color: #0000ee;
   text-decoration: underline;
 }
 
-.string-cell a:visited {
+.json-viewer-table .string-cell a:visited {
   color: #551a8b;
 }
 
-.string-cell a:hover {
+.json-viewer-table .string-cell a:hover {
   text-decoration: none;
 }
 
-.plain-string {
+.json-viewer-table .plain-string {
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f8f8f8;
@@ -207,7 +205,7 @@ td .array-table {
   word-break: break-word;
 }
 
-.plain-date {
+.json-viewer-table .plain-date {
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f0fff0;

@@ -225,48 +225,93 @@ const App = ({ contents }) => {
     }
   };
 
-  return html`<div class="slider-container">
-        <label htmlFor="open-levels">Open Levels: ${defaultOpenLevels}</label>
-        <input
-          type="range"
-          id="open-levels"
-          min="1"
-          max="10"
-          step="1"
-          value=${defaultOpenLevels}
-          onChange=${(e) => setDefaultOpenLevels(Number(e.target.value))}
-        />
-      </div>
-      ${GenerateJsObjectHtml({ jsonData: parsedContents, defaultOpenLevels })}`;
+  return html`<div class="json-viewer-table">
+        <div class="slider-container">
+          <label htmlFor="open-levels">Open Levels: ${defaultOpenLevels}</label>
+          <input
+            type="range"
+            id="open-levels"
+            min="1"
+            max="10"
+            step="1"
+            value=${defaultOpenLevels}
+            onChange=${(e) => setDefaultOpenLevels(Number(e.target.value))}
+          />
+        </div>
+        ${GenerateJsObjectHtml({ jsonData: parsedContents, defaultOpenLevels })}
+      </div>`;
+};
+
+const isValidJSON = (str) => {
+  if (typeof str !== 'string') return false;
+  try {
+    const result = JSON.parse(str);
+    return typeof result === 'object' && result !== null;
+  } catch (e) {
+    return false;
+  }
+};
+
+const findPreElement = () => {
+  const children = document.body.children;
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+    if (child.tagName === "PRE") return child;
+  }
+  return null;
+};
+
+const isLikelyJSON = (content) => {
+  // Check if content starts with { or [ after whitespace
+  return /^\s*[\{\[]/.test(content);
 };
 
 async function main() {
-  // const contents = {
-  //   person: {
-  //     name: "John Doe",
-  //     age: 30,
-  //     contacts: [
-  //       { type: "email", value: "john@example.com" },
-  //       { type: "phone", value: "123-456-7890" }
-  //     ],
-  //     birthday: new Date("1993-05-15"),
-  //     website: "https://example.com",
-  //     active: true
-  //   },
-  //   settings: {
-  //     notifications: true,
-  //     theme: "dark"
-  //   }
-  // };
-  const contents = document.documentElement.innerText;
+  // Find the PRE element
+  const preElement = findPreElement();
+  if (!preElement) {
+    console.log('No body>pre found');
+    return;
+  }
 
+  const content = preElement.textContent;
+  if (!content) {
+    console.log('No content in body>pre');
+    return;
+  }
 
-  const container = document.getElementById('preview');
-  document.body.innerHTML = '';
-  render(html`<${App} contents=${contents} />`, document.body);
+  // Check if content looks like JSON
+  if (!isLikelyJSON(content)) {
+    console.log('Content does not appear to be JSON');
+    return;
+  }
 
+  // Try parsing the content
+  try {
+    const parsedContent = JSON.parse(content);
+    if (typeof parsedContent !== "object" || parsedContent === null) {
+      console.log('Content is valid JSON but not an object or array');
+      return;
+    }
 
+    // Remove the PRE element and set up formatting
+    preElement.remove();
+    let container = document.getElementById('preview');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'preview';
+      document.body.appendChild(container);
+    }
+
+    document.body.innerHTML = '';
+    render(html`<${App} contents=${content} />`, document.body);
+
+  } catch (error) {
+    console.log('Content does not parse as valid JSON');
+    return;
+  }
 }
+
 main();
 
 
