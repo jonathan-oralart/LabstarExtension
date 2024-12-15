@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/main.js-loader.27a925b4.js"
+        "assets/main.js-loader.1945d8fa.js"
       ],
       "matches": [
         "<all_urls>"
@@ -18,7 +18,7 @@
       "all_frames": true,
       "run_at": "document_end",
       "css": [
-        "assets/main.bf01dbb0.css"
+        "assets/main.b2d51fa6.css"
       ]
     }
   ],
@@ -29,7 +29,7 @@
       ],
       "resources": [
         "icon.png",
-        "assets/main.js.cb931d7f.js"
+        "assets/main.js.039729a1.js"
       ],
       "use_dynamic_url": false
     }

@@ -199,6 +199,7 @@ const GenerateJsObjectHtml = ({ jsonData, defaultOpenLevels = 2 }) => {
 
 const App = ({ contents }) => {
   const [defaultOpenLevels, setDefaultOpenLevels] = useState(3);
+  const [showRawJson, setShowRawJson] = useState(false);
 
   let parsedContents;
   try {
@@ -226,19 +227,33 @@ const App = ({ contents }) => {
   };
 
   return html`<div class="json-viewer-table">
-        <div class="slider-container">
-          <label htmlFor="open-levels">Open Levels: ${defaultOpenLevels}</label>
-          <input
-            type="range"
-            id="open-levels"
-            min="1"
-            max="10"
-            step="1"
-            value=${defaultOpenLevels}
-            onChange=${(e) => setDefaultOpenLevels(Number(e.target.value))}
-          />
+        <div class="controls">
+          <div class="slider-container">
+            <label htmlFor="open-levels">Open Levels: ${defaultOpenLevels}</label>
+            <input
+              type="range"
+              id="open-levels"
+              min="1"
+              max="10"
+              step="1"
+              value=${defaultOpenLevels}
+              onChange=${(e) => setDefaultOpenLevels(Number(e.target.value))}
+            />
+          </div>
+          <div class="view-toggle">
+            <label>
+              <input
+                type="checkbox"
+                checked=${showRawJson}
+                onChange=${(e) => setShowRawJson(e.target.checked)}
+              />
+              Show Raw JSON
+            </label>
+          </div>
         </div>
-        ${GenerateJsObjectHtml({ jsonData: parsedContents, defaultOpenLevels })}
+        ${showRawJson
+      ? html`<pre class="raw-json">${JSON.stringify(parsedContents, null, 2)}</pre>`
+      : GenerateJsObjectHtml({ jsonData: parsedContents, defaultOpenLevels })}
       </div>`;
 };
 
