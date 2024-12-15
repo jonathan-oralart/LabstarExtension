@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "LMS Links Extension",
-  "version": "1.6",
-  "description": "Add links to ScanPark inside LMS",
+  "name": "JsonTable",
+  "version": "1.0",
+  "description": "View JSON files in a table",
   "permissions": [],
   "icons": {
     "64": "icon.png"
@@ -10,13 +10,18 @@
   "content_scripts": [
     {
       "js": [
-        "assets/addScanToTable.js-loader.55ad9871.js",
-        "assets/addLastScanLinkToCasePopup.js-loader.dd3d5083.js"
+        "assets/main.js-loader.de8fa075.js"
       ],
       "matches": [
-        "https://lms.3shape.com/*"
+        "*://*/*/*.json",
+        "file://*/*.json",
+        "*://*/*/*.jsont",
+        "file://*/*.jsont"
       ],
-      "all_frames": true
+      "all_frames": true,
+      "css": [
+        "assets/main.d053f33d.css"
+      ]
     }
   ],
   "web_accessible_resources": [
@@ -31,12 +36,13 @@
     },
     {
       "matches": [
-        "https://lms.3shape.com/*"
+        "*://*/*",
+        "*://*/*",
+        "file://*/*",
+        "file://*/*"
       ],
       "resources": [
-        "assets/getLatestScanOnScanPark.79728d42.js",
-        "assets/addScanToTable.js.68f19bb7.js",
-        "assets/addLastScanLinkToCasePopup.js.9dfc7d22.js"
+        "assets/main.js.c466ed8b.js"
       ],
       "use_dynamic_url": false
     }
